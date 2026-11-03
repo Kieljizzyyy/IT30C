@@ -1,0 +1,411 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Reserve Equipment - AgriCoop</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts: Work Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-tint": "#396844",
+            "surface-variant": "#e1e3e1",
+            "surface-container-highest": "#e1e3e1",
+            "inverse-surface": "#2e3130",
+            "on-secondary-fixed": "#2f1500",
+            "secondary-fixed-dim": "#ffb77d",
+            "primary-fixed-dim": "#a0d3a6",
+            "outline-variant": "#c1c9be",
+            "on-tertiary-fixed-variant": "#005312",
+            "tertiary-container": "#005011",
+            "background": "#f8faf8",
+            "tertiary-fixed-dim": "#88d982",
+            "secondary-container": "#fe932c",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed-variant": "#6e3900",
+            "outline": "#717970",
+            "on-background": "#191c1b",
+            "surface": "#f8faf8",
+            "on-primary-fixed": "#00210b",
+            "tertiary": "#003709",
+            "on-error-container": "#93000a",
+            "primary": "#023616",
+            "surface-container-lowest": "#ffffff",
+            "primary-container": "#1e4d2b",
+            "surface-bright": "#f8faf8",
+            "on-primary-fixed-variant": "#21502e",
+            "primary-fixed": "#bbefc1",
+            "inverse-primary": "#a0d3a6",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed": "#002204",
+            "on-secondary-container": "#663500",
+            "secondary-fixed": "#ffdcc3",
+            "on-surface": "#191c1b",
+            "inverse-on-surface": "#eff1ef",
+            "surface-container-low": "#f2f4f2",
+            "on-tertiary-container": "#73c46f",
+            "secondary": "#904d00",
+            "on-tertiary": "#ffffff",
+            "surface-container-high": "#e6e9e7",
+            "error": "#ba1a1a",
+            "surface-container": "#eceeec",
+            "on-primary-container": "#8bbd92",
+            "on-surface-variant": "#414941",
+            "on-error": "#ffffff",
+            "tertiary-fixed": "#a3f69c",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#d8dad9"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "gutter-mobile": "1rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Work Sans"],
+            "headline-xl": ["Work Sans"],
+            "body-sm": ["Work Sans"],
+            "body-lg": ["Work Sans"],
+            "label-lg": ["JetBrains Mono"],
+            "label-sm": ["JetBrains Mono"],
+            "headline-lg": ["Work Sans"],
+            "body-md": ["Work Sans"],
+            "headline-md": ["Work Sans"],
+            "label-md": ["JetBrains Mono"],
+            "headline-xl-mobile": ["Work Sans"],
+            "headline-lg-mobile": ["Work Sans"]
+          },
+          "fontSize": {
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen flex">
+<!-- Left Sidebar (SideNavBar Shared Component) -->
+<aside class="hidden md:flex w-64 h-screen flex-col justify-between p-4 flex-shrink-0 bg-surface-container-lowest border-r border-outline-variant fixed left-0 top-0 z-30">
+<div class="flex flex-col gap-6">
+<!-- Header / Brand -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="agriculture" style="font-variation-settings: 'FILL' 1;">agriculture</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="text-body-lg font-headline-sm font-bold text-primary leading-tight">AgriCoop Member</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Valley Basin Co-op Yard</span>
+</div>
+</div>
+<!-- Action Button CTA -->
+<button onclick="location.href='User_QuickReserve.html'" class="w-full h-11 bg-primary text-on-primary font-headline-sm text-label-md font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-label-lg" data-icon="add_circle">add_circle</span>
+        Reserve Equipment
+      </button>
+<!-- Navigation Links -->
+<nav aria-label="Main Navigation" class="flex flex-col gap-1.5">
+<!-- Active: Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors" href="UserDashboard.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<!-- Inactive: Browse Equipment -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors" href="User_Browse.html">
+<span class="material-symbols-outlined" data-icon="agriculture">agriculture</span>
+<span class="">Browse Equipment</span>
+</a>
+<!-- Inactive: My Reservations -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors" href="User_Reservation.html">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="">My Reservations</span>
+</a>
+<!-- Inactive: My Profile -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors" href="User_Profile.html">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="">My Profile</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Footer -->
+<div class="flex flex-col gap-2 pt-4 border-t border-outline-variant">
+<div class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-primary" data-icon="badge">badge</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">C. Miller Farm (#1042)</span>
+<span class="font-label-sm text-label-sm text-outline">Tier 1 Voting Co-op</span>
+</div>
+</div>
+</div>
+<a href="index.html" class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-error font-label-md text-label-md hover:bg-error-container/40 transition-colors">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 md:ml-64 flex flex-col min-h-screen">
+<!-- Top Bar Component -->
+<header class="flex justify-between items-center h-16 px-6 w-full bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-20">
+<div class="flex items-center gap-4">
+<!-- Mobile Drawer Toggle -->
+<button aria-label="Open menu" class="md:hidden p-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<!-- Telemetry Status Pills -->
+
+</div>
+<!-- Right Controls -->
+<div class="flex items-center gap-4"><div class="relative w-64 md:w-80"><input class="w-full pl-9 pr-3 py-1.5 font-body-sm text-body-sm bg-surface rounded-lg border border-outline-variant focus:outline-none focus:border-primary text-on-surface" placeholder="Search equipment or ID..." type="text"><span class="material-symbols-outlined absolute left-2.5 top-2 text-on-surface-variant text-label-lg" data-icon="search">search</span></div></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-6 md:p-8 space-y-8 max-w-7xl w-full mx-auto">
+<div class="max-w-7xl mx-auto space-y-6">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b border-outline-variant gap-4">
+<div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="calendar_month">calendar_month</span>
+<h1 class="text-headline-lg font-headline-lg text-primary tracking-tight">Reserve Equipment</h1>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">
+              Submit a reservation request for machinery and farm implements from Valley Basin Co-op Yard.
+            </p>
+</div>
+
+</div>
+<!-- Layout Grid: Form (Col-8) & Side Panel / Summary (Col-4) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Columns: 3-Step Wizard Form -->
+<div class="lg:col-span-8 space-y-6">
+<!-- Step 1: Equipment Selection -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm">
+<div class="flex items-center gap-3 mb-5">
+<span class="w-7 h-7 rounded-full bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">1</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Equipment Selection</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Select tractor, tillage tool, or harvesting implement from cooperative fleet</p>
+</div>
+</div>
+<!-- Selector Dropdown with Metadata Badges -->
+<div class="space-y-4">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2 font-medium">Select Machinery or Implement</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container" id="equipment-select">
+<option data-cat="Tractor &amp; Motive" data-name="Kubota Compact 4WD Tractor" selected="" value="75">Kubota Compact 4WD Tractor — $75.00/day (Available - Bay 04)</option>
+<option data-cat="Tillage &amp; Land Prep" data-name="Disc Plow" value="22">Disc Plow (3-Bottom) — $22.00/day (Available - Implements Rack B)</option>
+<option data-cat="Tillage &amp; Land Prep" data-name="Disc Harrow" value="20">Disc Harrow (Heavy Duty) — $20.00/day (Available - Implements Rack A)</option>
+<option data-cat="Crop Protection" data-name="Knapsack Sprayer" value="5">Knapsack Sprayer (16L Backpack) — $5.00/day (Available - Tool Shed 2)</option>
+<option data-cat="Hand Tools" data-name="Bolo / Machete" value="2">Bolo / Clearing Machete Set — $2.00/day (Available - Tool Crib)</option>
+<option data-cat="Harvesting" data-name="Combine Harvester" value="120">Combine Harvester (Multi-Crop) — $120.00/day (Available - Heavy Barn 1)</option>
+</select>
+</div>
+</div>
+<!-- Live Selected Equipment Card Snapshot -->
+<div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-surface-container-lowest border border-outline-variant flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[28px]" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-headline-sm text-body-lg font-semibold text-primary" id="display-equipment-name">Kubota Compact 4WD Tractor</h4>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed font-medium">Available</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Category: <span class="font-medium text-on-surface" id="display-equipment-cat">Tractor &amp; Motive</span> • Unit Tag: #VBY-TR-402</p>
+</div>
+</div>
+<div class="text-right sm:border-l sm:border-outline-variant sm:pl-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Daily Member Rate</p>
+<p class="font-headline-sm text-headline-sm text-primary font-bold" id="display-equipment-rate">$75.00 <span class="text-body-sm font-normal text-on-surface-variant">/day</span></p>
+</div>
+</div>
+</div>
+</section>
+<!-- Step 2: Schedule & Rental Duration -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm">
+<div class="flex items-center gap-3 mb-5">
+<span class="w-7 h-7 rounded-full bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">2</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Schedule &amp; Rental Duration</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Define pickup window and anticipated return schedule</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Pickup Date -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2 font-medium">Pickup Date</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]" data-icon="calendar_today">calendar_today</span>
+<input class="w-full pl-9 pr-3 py-2.5 bg-surface-container-low border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container" id="pickup-date" type="date" value="2025-04-10">
+</div>
+</div>
+<!-- Return Date -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2 font-medium">Expected Return / Due Date</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]" data-icon="event_repeat">event_repeat</span>
+<input class="w-full pl-9 pr-3 py-2.5 bg-surface-container-low border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container" id="return-date" type="date" value="2025-04-13">
+</div>
+</div>
+<!-- Pickup Time Slot -->
+
+</div>
+</section>
+<!-- Step 3: Usage & Field Details -->
+
+</div>
+<!-- Right Column: Summary & Cost Calculation Card + Staging Info -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Cost Calculation Summary Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm sticky top-6">
+<div class="border-b border-outline-variant pb-4 mb-4">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-surface-tint font-bold">Billing Breakdown</span>
+<h3 class="text-headline-sm font-headline-sm text-primary mt-1">Reservation Summary</h3>
+</div>
+<!-- Selected Items Details -->
+<div class="space-y-3 font-body-sm text-body-sm">
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Machinery Unit</span>
+<span class="font-semibold text-on-surface text-right" id="summary-unit">Kubota Compact 4WD Tractor</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Rental Duration</span>
+<span class="font-semibold text-on-surface" id="summary-days">3 Days</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Daily Co-op Member Rate</span>
+<span class="font-label-md text-label-md font-medium text-on-surface" id="summary-rate">$75.00 / day</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Yard Maintenance Fee</span>
+<span class="font-label-md text-label-md font-medium text-on-surface">$0.00 (Co-op Benefit)</span>
+</div>
+<!-- Divider -->
+<div class="border-t border-outline-variant pt-3 flex justify-between items-baseline">
+<div>
+<span class="font-headline-sm text-body-lg font-bold text-on-surface">Estimated Total</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Direct member billing account</p>
+</div>
+<span class="text-headline-md font-headline-md text-primary font-bold" id="summary-total">$225.00</span>
+</div>
+</div>
+<!-- Deposit / Policy Note -->
+<div class="mt-5 p-3.5 bg-surface-container rounded-lg border border-outline-variant text-body-sm text-body-sm flex gap-3 items-start">
+<span class="material-symbols-outlined text-secondary text-[20px] flex-shrink-0 mt-0.5" data-icon="info">info</span>
+<p class="text-on-surface-variant text-[13px] leading-tight">
+<strong class="text-on-surface font-semibold">Fuel &amp; Return Policy:</strong> Equipment is staged at 100% tank capacity. Fuel replacement required upon check-in. Standard 24h grace window for weather delays.
+                </p>
+</div>
+<!-- Actions -->
+<div class="mt-6 flex flex-col gap-2.5">
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant flex items-start gap-2.5 mb-1"><input checked="" class="mt-1 h-4 w-4 rounded border-outline text-primary-container focus:ring-primary-container cursor-pointer" id="equipment-handling-agreement" type="checkbox" placeholder="on" value=""><label class="font-body-sm text-[13px] text-on-surface leading-snug cursor-pointer" for="equipment-handling-agreement"><span class="font-semibold text-primary">Equipment Care Agreement:</span> I confirm that I will operate and handle this cooperative equipment with proper care, adhere to standard safety protocols, and return it clean and in good working condition.</label></div><button class="w-full h-11 bg-primary-container hover:bg-primary text-on-primary rounded-lg font-headline-sm text-body-md font-semibold flex items-center justify-center gap-2 transition-colors duration-150 shadow-sm" onclick="alert('Reservation request submitted successfully to Valley Basin Co-op Dispatch!')" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle">check_circle</span>
+<span class="">Submit Reservation Request</span>
+</button>
+<button class="w-full h-10 border border-primary-container text-primary-container hover:bg-primary-container/5 rounded-lg font-headline-sm text-body-sm font-semibold transition-colors duration-150" type="button">
+                  Cancel / Back to Browse
+                </button>
+</div>
+</div>
+<!-- Yard Staging & Pickup Protocol Card -->
+
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Dynamic calculation micro-interaction script -->
+<script>
+    const equipSelect = document.getElementById('equipment-select');
+    const pickupInput = document.getElementById('pickup-date');
+    const returnInput = document.getElementById('return-date');
+
+    const nameDisp = document.getElementById('display-equipment-name');
+    const catDisp = document.getElementById('display-equipment-cat');
+    const rateDisp = document.getElementById('display-equipment-rate');
+    const summaryUnit = document.getElementById('summary-unit');
+    const summaryDays = document.getElementById('summary-days');
+    const summaryRate = document.getElementById('summary-rate');
+    const summaryTotal = document.getElementById('summary-total');
+
+    function updateCalculations() {
+      const selectedOption = equipSelect.options[equipSelect.selectedIndex];
+      const dailyPrice = parseFloat(selectedOption.value);
+      const equipmentName = selectedOption.getAttribute('data-name');
+      const categoryName = selectedOption.getAttribute('data-cat');
+
+      nameDisp.textContent = equipmentName;
+      catDisp.textContent = categoryName;
+      rateDisp.innerHTML = `$${dailyPrice.toFixed(2)} <span class="text-body-sm font-normal text-on-surface-variant">/day</span>`;
+
+      summaryUnit.textContent = equipmentName;
+      summaryRate.textContent = `$${dailyPrice.toFixed(2)} / day`;
+
+      // Calculate days
+      const d1 = new Date(pickupInput.value);
+      const d2 = new Date(returnInput.value);
+      let diffTime = d2 - d1;
+      let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      if (diffDays <= 0 || isNaN(diffDays)) {
+        diffDays = 1;
+      }
+
+      summaryDays.textContent = `${diffDays} Day${diffDays > 1 ? 's' : ''}`;
+      const total = diffDays * dailyPrice;
+      summaryTotal.textContent = `$${total.toFixed(2)}`;
+    }
+
+    equipSelect.addEventListener('change', updateCalculations);
+    pickupInput.addEventListener('change', updateCalculations);
+    returnInput.addEventListener('change', updateCalculations);
+
+    // Initial run
+    updateCalculations();
+  </script>
+
+
+
+
+</body></html>
