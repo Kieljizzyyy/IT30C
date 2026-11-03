@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Browse Equipment - AgriCoop Member Portal</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Fonts: Work Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim from Design System -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#e1e3e1",
+            "primary-fixed-dim": "#a0d3a6",
+            "surface-variant": "#e1e3e1",
+            "on-primary-fixed-variant": "#21502e",
+            "on-background": "#191c1b",
+            "secondary": "#904d00",
+            "primary-container": "#1e4d2b",
+            "on-surface-variant": "#414941",
+            "surface-container-lowest": "#ffffff",
+            "surface-tint": "#396844",
+            "inverse-primary": "#a0d3a6",
+            "tertiary": "#003709",
+            "inverse-surface": "#2e3130",
+            "on-secondary": "#ffffff",
+            "background": "#f8faf8",
+            "on-error": "#ffffff",
+            "outline": "#717970",
+            "primary-fixed": "#bbefc1",
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#ffdcc3",
+            "on-primary-container": "#8bbd92",
+            "on-secondary-container": "#663500",
+            "surface-dim": "#d8dad9",
+            "tertiary-fixed-dim": "#88d982",
+            "tertiary-container": "#005011",
+            "on-primary-fixed": "#00210b",
+            "surface-bright": "#f8faf8",
+            "secondary-fixed-dim": "#ffb77d",
+            "on-tertiary-fixed": "#002204",
+            "on-primary": "#ffffff",
+            "error": "#ba1a1a",
+            "on-surface": "#191c1b",
+            "on-tertiary-container": "#73c46f",
+            "surface-container-low": "#f2f4f2",
+            "secondary-container": "#fe932c",
+            "surface-container": "#eceeec",
+            "on-tertiary": "#ffffff",
+            "inverse-on-surface": "#eff1ef",
+            "surface-container-high": "#e6e9e7",
+            "surface": "#f8faf8",
+            "on-secondary-fixed-variant": "#6e3900",
+            "tertiary-fixed": "#a3f69c",
+            "on-tertiary-fixed-variant": "#005312",
+            "outline-variant": "#c1c9be",
+            "on-secondary-fixed": "#2f1500",
+            "primary": "#023616"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": ["Work Sans"],
+            "body-md": ["Work Sans"],
+            "body-lg": ["Work Sans"],
+            "headline-xl": ["Work Sans"],
+            "label-lg": ["JetBrains Mono"],
+            "headline-lg": ["Work Sans"],
+            "label-sm": ["JetBrains Mono"],
+            "headline-md": ["Work Sans"],
+            "label-md": ["JetBrains Mono"],
+            "headline-xl-mobile": ["Work Sans"],
+            "headline-sm": ["Work Sans"],
+            "body-sm": ["Work Sans"]
+          },
+          "fontSize": {
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen flex">
+<!-- Left Sidebar (SideNavBar Shared Component) -->
+<aside class="hidden md:flex w-64 h-screen flex-col justify-between p-4 flex-shrink-0 bg-surface-container-lowest border-r border-outline-variant fixed left-0 top-0 z-30">
+<div class="flex flex-col gap-6">
+<!-- Header / Brand -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="agriculture" style="font-variation-settings: 'FILL' 1;">agriculture</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="text-body-lg font-headline-sm font-bold text-primary leading-tight">AgriCoop Member</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Valley Basin Co-op Yard</span>
+</div>
+</div>
+<!-- Action Button CTA -->
+<a href="User_QuickReserve.html" class="w-full h-11 bg-primary text-on-primary font-headline-sm text-label-md font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-label-lg" data-icon="add_circle">add_circle</span>
+        Reserve Equipment
+</a>
+<!-- Navigation Links -->
+<nav aria-label="Main Navigation" class="flex flex-col gap-1.5">
+<!-- Active: Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors" href="UserDashboard.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<!-- Inactive: Browse Equipment -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-container text-primary font-label-md text-label-md font-semibold border-l-4 border-primary" href="User_Browse.html">
+<span class="material-symbols-outlined" data-icon="agriculture" style="font-variation-settings: 'FILL' 1;">agriculture</span>
+<span class="">Browse Equipment</span>
+</a>
+<!-- Inactive: My Reservations -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors" href="User_Reservation.html">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="">My Reservations</span>
+</a>
+<!-- Inactive: My Profile -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors" href="User_Profile.html">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="">My Profile</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Footer -->
+<div class="flex flex-col gap-2 pt-4 border-t border-outline-variant">
+<div class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-primary" data-icon="badge">badge</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">C. Miller Farm (#1042)</span>
+<span class="font-label-sm text-label-sm text-outline">Tier 1 Voting Co-op</span>
+</div>
+</div>
+</div>
+<a href="index.html" class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-error font-label-md text-label-md hover:bg-error-container/40 transition-colors">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 md:ml-64 flex flex-col min-h-screen">
+<!-- Top Bar Component -->
+<header class="flex justify-between items-center h-16 px-6 w-full bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-20">
+<div class="flex items-center gap-4">
+<!-- Mobile Drawer Toggle -->
+<button aria-label="Open menu" class="md:hidden p-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<!-- Telemetry Status Pills -->
+
+</div>
+<!-- Right Controls -->
+<div class="flex items-center gap-4"><div class="relative w-64 md:w-80"><input class="w-full pl-9 pr-3 py-1.5 font-body-sm text-body-sm bg-surface rounded-lg border border-outline-variant focus:outline-none focus:border-primary text-on-surface" placeholder="Search equipment or ID..." type="text"><span class="material-symbols-outlined absolute left-2.5 top-2 text-on-surface-variant text-label-lg" data-icon="search">search</span></div></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-6 md:p-8 flex flex-col gap-8 max-w-7xl w-full mx-auto">
+<!-- BREADCRUMB & HEADER -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-outline-variant pb-6"><div class="">
+
+<h1 class="text-headline-lg font-headline-lg text-primary tracking-tight">Browse Equipment</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">
+Available machinery at Valley Basin Co-op Yard
+</p>
+</div>
+<div class="flex items-center gap-2"><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-label-sm font-label-sm font-semibold bg-emerald-50 text-emerald-800 border border-emerald-300"><span class="w-2 h-2 rounded-full bg-emerald-600"></span>19 Items Available</span></div></section>
+<!-- SEARCH & FILTER TOOLBAR -->
+<section class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant shadow-sm flex flex-col gap-4"><div class="flex flex-col md:flex-row gap-3 items-center justify-between"><div class="relative w-full md:flex-1"><span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-xl pointer-events-none" data-icon="search">search</span><input class="w-full pl-10 pr-4 py-2 rounded-lg border border-outline-variant bg-background text-on-surface text-body-md font-body-md placeholder:text-on-surface-variant placeholder:text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" id="equipment-search" placeholder="Search machinery by keyword or ID..." type="text"></div><div class="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto scrollbar-none"><button class="px-3 py-1.5 rounded-full text-label-sm font-label-sm font-semibold bg-primary text-on-primary shadow-xs whitespace-nowrap">All (19)</button><button class="px-3 py-1.5 rounded-full text-label-sm font-label-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant transition-colors whitespace-nowrap">Basic Hand Tools (8)</button><button class="px-3 py-1.5 rounded-full text-label-sm font-label-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant transition-colors whitespace-nowrap">Farm Implements (3)</button><button class="px-3 py-1.5 rounded-full text-label-sm font-label-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant transition-colors whitespace-nowrap">Powered Equipment (8)</button></div></div></section>
+<!-- ========================================== -->
+<!-- EQUIPMENT ROSTER GRID (4 Core Items)       -->
+<!-- ========================================== -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6"><!-- SECTION 1: BASIC HAND TOOLS --><div class="col-span-1 md:col-span-2 xl:col-span-4 flex items-center justify-between pt-2 pb-1 border-b border-outline-variant"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary" data-icon="handyman">handyman</span><h2 class="text-headline-sm font-headline-sm font-semibold text-primary">Basic Hand Tools</h2><span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-medium">8 items</span></div><span class="text-label-sm font-label-sm text-on-surface-variant">Nominal rates $2 - $5 / day</span></div><!-- TOOL 1: Bolo / Machete --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">HAND TOOL • #HT-01</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-2xl" data-icon="content_cut">content_cut</span><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Bolo / Machete</h3></div><p class="text-body-sm font-body-sm text-on-surface-variant">Heavy-duty forged blade for cutting tall grasses, clearing persistent weeds, and pruning branches.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$2 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- TOOL 2: Grub Hoe --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">HAND TOOL • #HT-02</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-2xl" data-icon="hardware">hardware</span><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Grub Hoe</h3></div><p class="text-body-sm font-body-sm text-on-surface-variant">Hardened broad steel blade designed for deep digging, loosening compacted topsoil, and bed preparation.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$3 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- TOOL 3: Shovel & Spade --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">HAND TOOL • #HT-03</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-2xl" data-icon="construction">construction</span><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Shovel &amp; Spade</h3></div><p class="text-body-sm font-body-sm text-on-surface-variant">Reinforced ash handle set for moving soil and compost, digging irrigation trenches, and ditching.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$3 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- TOOL 4: Rake --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">HAND TOOL • #HT-04</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-2xl" data-icon="format_align_justify">format_align_justify</span><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Rake</h3></div><p class="text-body-sm font-body-sm text-on-surface-variant">Steel 14-tine bow rake engineered for clearing field debris, gathering weeds, and leveling seedbeds.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$2 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- TOOL 5: Sickle --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">HAND TOOL • #HT-05</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-2xl" data-icon="crop">crop</span><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Sickle</h3></div><p class="text-body-sm font-body-sm text-on-surface-variant">Curved serrated blade optimized for harvesting grains, paddy rice, and manual forage cutting.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$2 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- TOOL 6: Hand Trowel --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">HAND TOOL • #HT-06</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-2xl" data-icon="nature">nature</span><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Hand Trowel</h3></div><p class="text-body-sm font-body-sm text-on-surface-variant">Precision ergonomic spade for transplanting nursery seedlings and targeted vegetable cultivation.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$2 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- TOOL 7: Knapsack Sprayer --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">HAND TOOL • #HT-07</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-2xl" data-icon="opacity">opacity</span><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Knapsack Sprayer</h3></div><p class="text-body-sm font-body-sm text-on-surface-variant">16-Liter pressurized backpack tank with brass lance for applying liquid fertilizers and organic pesticides.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$5 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- TOOL 8: Wheelbarrow --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">HAND TOOL • #HT-08</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-2xl" data-icon="local_shipping">local_shipping</span><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Wheelbarrow</h3></div><p class="text-body-sm font-body-sm text-on-surface-variant">Heavy gauge steel tray with all-terrain pneumatic tire for hauling soil, compost, manure, and harvested crops.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$4 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- SECTION 2: FARM IMPLEMENTS --><div class="col-span-1 md:col-span-2 xl:col-span-4 flex items-center justify-between pt-6 pb-1 border-b border-outline-variant mt-2"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary" data-icon="agriculture">agriculture</span><h2 class="text-headline-sm font-headline-sm font-semibold text-secondary">Farm Implements</h2><span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-medium">3 items</span></div><span class="text-label-sm font-label-sm text-on-surface-variant">Tractor-mounted implements $18 - $25 / day</span></div><!-- IMPLEMENT 1: Disc Plow --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">IMPLEMENT • #IMP-01</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-2xl" data-icon="tune">tune</span><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Disc Plow</h3></div><p class="text-body-sm font-body-sm text-on-surface-variant">3-bottom heavy discs for cutting deep furrows, turning stubborn soil, and burying tough crop residue.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$22 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- IMPLEMENT 2: Disc Harrow --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">IMPLEMENT • #IMP-02</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-2xl" data-icon="grid_view">grid_view</span><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Disc Harrow</h3></div><p class="text-body-sm font-body-sm text-on-surface-variant">Tandem gang discs for breaking up clods, pulverizing crusted soil, and smoothing seedbeds prior to planting.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$20 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- IMPLEMENT 3: Field Cultivator --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">IMPLEMENT • #IMP-03</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-2xl" data-icon="alt_route">alt_route</span><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Field Cultivator</h3></div><p class="text-body-sm font-body-sm text-on-surface-variant">Adjustable spring-tooth shanks for weeding between established crop rows and aerating topsoil.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$18 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- SECTION 3: POWERED FARM EQUIPMENT --><div class="col-span-1 md:col-span-2 xl:col-span-4 flex items-center justify-between pt-6 pb-1 border-b border-outline-variant mt-2"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container" data-icon="speed">speed</span><h2 class="text-headline-sm font-headline-sm font-semibold text-primary">Powered Farm Equipment</h2><span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-medium">8 items</span></div><span class="text-label-sm font-label-sm text-on-surface-variant">Machinery rentals $15 - $120 / day</span></div><!-- POWERED 1: Kubota Compact 4WD Tractor --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">POWERED • #PWR-01</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Kubota Compact 4WD Tractor</h3><p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2">35 HP Diesel • 4WD Hydrostatic • Standard Category 1 3-point hitch and front-end loader.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$75 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- POWERED 2: Combine Harvester --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">POWERED • #PWR-02</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-2xl" data-icon="precision_manufacturing">precision_manufacturing</span><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Combine Harvester</h3></div><p class="text-body-sm font-body-sm text-on-surface-variant">Multi-crop threshing and harvesting combine with grain cleaner and hydraulic grain hopper.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$120 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- POWERED 3: Seed Drill --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">POWERED • #PWR-03</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Seed Drill</h3><p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2">10-Foot width precision seeder with calibrated seed hopper for uniform depth and germination spacing.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$65 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- POWERED 4: High-Flow Irrigation Pump --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">POWERED • #PWR-04</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">High-Flow Irrigation Pump</h3><p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2">260 GPM output with Honda OHV 4-stroke engine and quick-connect discharge hose for canal pumping.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$40 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- POWERED 5: Rotavator --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">POWERED • #EQ-01</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-2xl" data-icon="settings_suggest">settings_suggest</span><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Rotavator</h3></div><p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2">High-efficiency rotary tiller implement for seedbed preparation, soil pulverizing, and weed control.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$45 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- POWERED 6: Brush Cutter --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">POWERED • #EQ-02</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-2xl" data-icon="content_cut">content_cut</span><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Brush Cutter</h3></div><p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2">Heavy-duty motorized trimmer / weed clearing cutter for field boundaries, irrigation canal banks, and dense brush.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$15 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- POWERED 7: Water Pump --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">POWERED • #EQ-03</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-2xl" data-icon="water_drop">water_drop</span><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Water Pump</h3></div><p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2">High-flow agricultural water pump with suction hose for paddy irrigation, drainage, and water transfer.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$25 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article><!-- POWERED 8: Rice Thresher --><article class="bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col justify-between overflow-hidden shadow-sm hover:border-primary transition-all duration-200"><div><div class="p-3.5 border-b border-outline-variant bg-surface-container-low flex items-center justify-between"><span class="text-label-sm font-label-sm font-bold text-secondary uppercase">POWERED • #EQ-04</span><span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Available</span></div><div class="p-4 flex flex-col gap-2"><div class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-2xl" data-icon="grain">grain</span><h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold leading-tight">Rice Thresher</h3></div><p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2">Motorized mechanical grain thresher for separating paddy grains efficiently during harvest.</p></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2 mt-auto"><div><span class="text-headline-sm font-headline-sm font-bold text-primary">$55 <span class="text-label-sm font-normal text-on-surface-variant">/ day</span></span></div><button class="px-3.5 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1"><span class="">Reserve</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></button></div></article></section>
+<!-- ========================================== -->
+<!-- INLINE RESERVATION CARD / WORKFLOW DRAWER  -->
+<!-- ========================================== -->
+</main>
+<!-- CLEAN CO-OPERATIVE FOOTER (No debug/technical metadata) -->
+</div>
+<!-- INTERACTIVE LOGIC SCRIPT -->
+<script>
+    function scrollToReservation(unitId, unitName, dailyRate) {
+      const selectElement = document.getElementById('select-equipment');
+      if (selectElement) {
+        selectElement.value = unitId;
+      }
+      
+      updateEstimatedCost();
+
+      const drawer = document.getElementById('reservation-drawer');
+      if (drawer) {
+        drawer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Visual focus highlight pulse
+        drawer.classList.add('ring-2', 'ring-primary');
+        setTimeout(() => {
+          drawer.classList.remove('ring-2', 'ring-primary');
+        }, 1200);
+      }
+    }
+
+    function updateEstimatedCost() {
+      const selectElement = document.getElementById('select-equipment');
+      const pickupDateInput = document.getElementById('pickup-date');
+      const dueDateInput = document.getElementById('due-date');
+      
+      const selectedOption = selectElement.options[selectElement.selectedIndex];
+      const rate = parseFloat(selectedOption.getAttribute('data-rate')) || 50;
+
+      const pDate = new Date(pickupDateInput.value);
+      const dDate = new Date(dueDateInput.value);
+      
+      let diffDays = Math.ceil((dDate - pDate) / (1000 * 60 * 60 * 24));
+      if (isNaN(diffDays) || diffDays < 1) {
+        diffDays = 1;
+      }
+
+      const total = rate * diffDays;
+
+      document.getElementById('summary-daily-rate').textContent = '$' + rate.toFixed(2);
+      document.getElementById('summary-days').textContent = diffDays + (diffDays === 1 ? ' day' : ' days');
+      document.getElementById('summary-total').textContent = '$' + total.toFixed(2);
+    }
+
+    function handleReservationSubmit(e) {
+      e.preventDefault();
+      const confirmation = document.getElementById('confirmation-banner');
+      if (confirmation) {
+        confirmation.classList.remove('hidden');
+        confirmation.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    // Run initial calculation on mount
+    window.addEventListener('DOMContentLoaded', () => {
+      updateEstimatedCost();
+    });
+  </script>
+
+
+
+
+
+
+</body></html>
