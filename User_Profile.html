@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AgriCoop Member - My Profile</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Fonts: Work Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#e1e3e1",
+            "primary-fixed-dim": "#a0d3a6",
+            "surface-variant": "#e1e3e1",
+            "on-primary-fixed-variant": "#21502e",
+            "on-background": "#191c1b",
+            "secondary": "#904d00",
+            "primary-container": "#1e4d2b",
+            "on-surface-variant": "#414941",
+            "surface-container-lowest": "#ffffff",
+            "surface-tint": "#396844",
+            "inverse-primary": "#a0d3a6",
+            "tertiary": "#003709",
+            "inverse-surface": "#2e3130",
+            "on-secondary": "#ffffff",
+            "background": "#f8faf8",
+            "on-error": "#ffffff",
+            "outline": "#717970",
+            "primary-fixed": "#bbefc1",
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#ffdcc3",
+            "on-primary-container": "#8bbd92",
+            "on-secondary-container": "#663500",
+            "surface-dim": "#d8dad9",
+            "tertiary-fixed-dim": "#88d982",
+            "tertiary-container": "#005011",
+            "on-primary-fixed": "#00210b",
+            "surface-bright": "#f8faf8",
+            "secondary-fixed-dim": "#ffb77d",
+            "on-tertiary-fixed": "#002204",
+            "on-primary": "#ffffff",
+            "error": "#ba1a1a",
+            "on-surface": "#191c1b",
+            "on-tertiary-container": "#73c46f",
+            "surface-container-low": "#f2f4f2",
+            "secondary-container": "#fe932c",
+            "surface-container": "#eceeec",
+            "on-tertiary": "#ffffff",
+            "inverse-on-surface": "#eff1ef",
+            "surface-container-high": "#e6e9e7",
+            "surface": "#f8faf8",
+            "on-secondary-fixed-variant": "#6e3900",
+            "tertiary-fixed": "#a3f69c",
+            "on-tertiary-fixed-variant": "#005312",
+            "outline-variant": "#c1c9be",
+            "on-secondary-fixed": "#2f1500",
+            "primary": "#023616"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": ["Work Sans"],
+            "body-md": ["Work Sans"],
+            "body-lg": ["Work Sans"],
+            "headline-xl": ["Work Sans"],
+            "label-lg": ["JetBrains Mono"],
+            "headline-lg": ["Work Sans"],
+            "label-sm": ["JetBrains Mono"],
+            "headline-md": ["Work Sans"],
+            "label-md": ["JetBrains Mono"],
+            "headline-xl-mobile": ["Work Sans"],
+            "headline-sm": ["Work Sans"],
+            "body-sm": ["Work Sans"]
+          },
+          "fontSize": {
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen flex">
+<!-- Left Sidebar (SideNavBar Shared Component) -->
+<aside class="hidden md:flex w-64 h-screen flex-col justify-between p-4 flex-shrink-0 bg-surface-container-lowest border-r border-outline-variant fixed left-0 top-0 z-30">
+<div class="flex flex-col gap-6">
+<!-- Header / Brand -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="agriculture" style="font-variation-settings: 'FILL' 1;">agriculture</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="text-body-lg font-headline-sm font-bold text-primary leading-tight">AgriCoop Member</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Valley Basin Co-op Yard</span>
+</div>
+</div>
+<!-- Action Button CTA -->
+<a href="User_QuickReserve.html" class="w-full h-11 bg-primary text-on-primary font-headline-sm text-label-md font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-label-lg" data-icon="add_circle">add_circle</span>
+        Reserve Equipment
+</a>
+<!-- Navigation Links -->
+<nav aria-label="Main Navigation" class="flex flex-col gap-1.5">
+<!-- Active: Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors" href="UserDashboard.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<!-- Inactive: Browse Equipment -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors" href="User_Browse.html">
+<span class="material-symbols-outlined" data-icon="agriculture">agriculture</span>
+<span class="">Browse Equipment</span>
+</a>
+<!-- Inactive: My Reservations -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors" href="User_Reservation.html">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="">My Reservations</span>
+</a>
+<!-- Inactive: My Profile -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-container text-primary font-label-md text-label-md font-semibold border-l-4 border-primary" href="User_Profile.html">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="">My Profile</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Footer -->
+<div class="flex flex-col gap-2 pt-4 border-t border-outline-variant">
+<div class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-primary" data-icon="badge">badge</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">C. Miller Farm (#1042)</span>
+<span class="font-label-sm text-label-sm text-outline">Tier 1 Voting Co-op</span>
+</div>
+</div>
+</div>
+<a href="index.html" class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-error font-label-md text-label-md hover:bg-error-container/40 transition-colors">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 md:ml-64 flex flex-col min-h-screen">
+<!-- Top Bar Component -->
+<header class="flex justify-between items-center h-16 px-6 w-full bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-20">
+<div class="flex items-center gap-4">
+<!-- Mobile Drawer Toggle -->
+<button aria-label="Open menu" class="md:hidden p-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<!-- Telemetry Status Pills -->
+
+</div>
+<!-- Right Controls -->
+<div class="flex items-center gap-4"><div class="relative w-64 md:w-80"><input class="w-full pl-9 pr-3 py-1.5 font-body-sm text-body-sm bg-surface rounded-lg border border-outline-variant focus:outline-none focus:border-primary text-on-surface" placeholder="Search equipment or ID..." type="text"><span class="material-symbols-outlined absolute left-2.5 top-2 text-on-surface-variant text-label-lg" data-icon="search">search</span></div></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-6 md:p-8 space-y-8 max-w-7xl w-full mx-auto">
+<div class="space-y-8">
+<!-- Top Header Banner -->
+<div class="flex flex-col gap-1 pb-2">
+<div class="flex items-center gap-2 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="home_work">home_work</span>
+<span class="">COOPERATIVE MEMBER REGISTRY</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-primary tracking-tight">My Profile</h1>
+<p class="text-body-md font-body-md text-on-surface-variant">
+            Manage your cooperative membership details, farm location, and rental preferences.
+          </p>
+</div>
+<!-- PROFILE OVERVIEW CARD (Modern Utilitarian Bento Header) -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-start sm:items-center gap-4">
+<!-- Member Avatar / Photo -->
+<div class="relative w-16 h-16 rounded-xl overflow-hidden border border-outline-variant bg-surface-container flex-shrink-0 flex items-center justify-center"><span class="material-symbols-outlined text-on-surface-variant text-[36px]" data-icon="person">person</span></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-3">
+<h2 class="text-headline-sm font-headline-sm text-on-background font-semibold">Charles Miller</h2>
+<!-- Status Chip -->
+
+</div>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-3 text-body-sm font-body-sm text-on-surface-variant mt-1">
+<span class="font-medium text-on-surface">C. Miller Farm</span>
+<span class="">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Membership ID: #1042</span>
+<span class="">•</span>
+<span class="text-outline">Joined: March 2023</span>
+</div>
+</div>
+</div>
+<!-- Tier / Operational Badge -->
+
+</div>
+</div>
+<!-- MEMBER DETAILS FORM -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl divide-y divide-outline-variant">
+<!-- Section 1: Personal & Contact Info -->
+<div class="p-6">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="contact_page">contact_page</span>
+<h3 class="font-headline-sm text-[18px] text-on-surface font-semibold">Personal &amp; Contact Info</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5"><div><label class="block font-label-md text-label-md text-on-surface-variant mb-1.5">Full Name</label><div class="relative"><input class="w-full h-11 px-3.5 text-body-md font-body-md bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" type="text" value="Charles Miller"></div></div><div><label class="block font-label-md text-label-md text-on-surface-variant mb-1.5">Email Address</label><div class="relative"><input class="w-full h-11 px-3.5 text-body-md font-body-md bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" type="email" value="c.miller@agricoop.share.bukph"></div></div><div><label class="block font-label-md text-label-md text-on-surface-variant mb-1.5">Phone Number</label><div class="relative"><input class="w-full h-11 px-3.5 text-body-md font-body-md bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-label-md" type="tel" value="+63 917 555 0192"></div></div><div><label class="block font-label-md text-label-md text-on-surface-variant mb-1.5">Farm / Home Location</label><div class="relative"><input class="w-full h-11 px-3.5 text-body-md font-body-md bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" type="text" value="Valley Basin Sector 4, Bukidnon"></div></div></div>
+</div>
+<!-- Section 2: Farm / Field Information -->
+
+<!-- Section 3: Co-op Rental Agreement & Clearances -->
+
+<!-- Section 4: Preferences & Notification Settings -->
+
+<!-- Section 5: Action Footer -->
+<div class="p-6 bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-4 rounded-b-xl">
+<div class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="info">info</span>
+<span class="">All changes are logged in the cooperative dispatch audit register.</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial h-11 px-5 border border-primary text-primary hover:bg-surface-container font-headline-sm text-[15px] font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="key">key</span>
+<span class="">Update Password</span>
+</button>
+<button class="flex-1 sm:flex-initial h-11 px-6 bg-primary-container hover:bg-primary text-on-primary font-headline-sm text-[15px] font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="check">check</span>
+<span class="">Save Changes</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+
+
+
+</body></html>
