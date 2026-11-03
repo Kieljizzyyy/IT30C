@@ -1,0 +1,440 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AgriCoop Member - My Reservations</title>
+<!-- Google Fonts: Work Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#e1e3e1",
+            "primary-fixed-dim": "#a0d3a6",
+            "surface-variant": "#e1e3e1",
+            "on-primary-fixed-variant": "#21502e",
+            "on-background": "#191c1b",
+            "secondary": "#904d00",
+            "primary-container": "#1e4d2b",
+            "on-surface-variant": "#414941",
+            "surface-container-lowest": "#ffffff",
+            "surface-tint": "#396844",
+            "inverse-primary": "#a0d3a6",
+            "tertiary": "#003709",
+            "inverse-surface": "#2e3130",
+            "on-secondary": "#ffffff",
+            "background": "#f8faf8",
+            "on-error": "#ffffff",
+            "outline": "#717970",
+            "primary-fixed": "#bbefc1",
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#ffdcc3",
+            "on-primary-container": "#8bbd92",
+            "on-secondary-container": "#663500",
+            "surface-dim": "#d8dad9",
+            "tertiary-fixed-dim": "#88d982",
+            "tertiary-container": "#005011",
+            "on-primary-fixed": "#00210b",
+            "surface-bright": "#f8faf8",
+            "secondary-fixed-dim": "#ffb77d",
+            "on-tertiary-fixed": "#002204",
+            "on-primary": "#ffffff",
+            "error": "#ba1a1a",
+            "on-surface": "#191c1b",
+            "on-tertiary-container": "#73c46f",
+            "surface-container-low": "#f2f4f2",
+            "secondary-container": "#fe932c",
+            "surface-container": "#eceeec",
+            "on-tertiary": "#ffffff",
+            "inverse-on-surface": "#eff1ef",
+            "surface-container-high": "#e6e9e7",
+            "surface": "#f8faf8",
+            "on-secondary-fixed-variant": "#6e3900",
+            "tertiary-fixed": "#a3f69c",
+            "on-tertiary-fixed-variant": "#005312",
+            "outline-variant": "#c1c9be",
+            "on-secondary-fixed": "#2f1500",
+            "primary": "#023616"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": [
+              "Work Sans"
+            ],
+            "body-md": [
+              "Work Sans"
+            ],
+            "body-lg": [
+              "Work Sans"
+            ],
+            "headline-xl": [
+              "Work Sans"
+            ],
+            "label-lg": [
+              "JetBrains Mono"
+            ],
+            "headline-lg": [
+              "Work Sans"
+            ],
+            "label-sm": [
+              "JetBrains Mono"
+            ],
+            "headline-md": [
+              "Work Sans"
+            ],
+            "label-md": [
+              "JetBrains Mono"
+            ],
+            "headline-xl-mobile": [
+              "Work Sans"
+            ],
+            "headline-sm": [
+              "Work Sans"
+            ],
+            "body-sm": [
+              "Work Sans"
+            ]
+          },
+          "fontSize": {
+            "headline-lg-mobile": [
+              "24px",
+              {
+                "lineHeight": "32px",
+                "fontWeight": "600"
+              }
+            ],
+            "body-md": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "body-lg": [
+              "18px",
+              {
+                "lineHeight": "28px",
+                "fontWeight": "400"
+              }
+            ],
+            "headline-xl": [
+              "40px",
+              {
+                "lineHeight": "48px",
+                "fontWeight": "700"
+              }
+            ],
+            "label-lg": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "500"
+              }
+            ],
+            "headline-lg": [
+              "32px",
+              {
+                "lineHeight": "40px",
+                "fontWeight": "600"
+              }
+            ],
+            "label-sm": [
+              "11px",
+              {
+                "lineHeight": "14px",
+                "fontWeight": "500"
+              }
+            ],
+            "headline-md": [
+              "24px",
+              {
+                "lineHeight": "32px",
+                "fontWeight": "600"
+              }
+            ],
+            "label-md": [
+              "12px",
+              {
+                "lineHeight": "16px",
+                "fontWeight": "500"
+              }
+            ],
+            "headline-xl-mobile": [
+              "30px",
+              {
+                "lineHeight": "38px",
+                "fontWeight": "700"
+              }
+            ],
+            "headline-sm": [
+              "20px",
+              {
+                "lineHeight": "28px",
+                "fontWeight": "600"
+              }
+            ],
+            "body-sm": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "400"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen flex">
+<!-- Left Sidebar (SideNavBar Shared Component) -->
+<aside class="hidden md:flex w-64 h-screen flex-col justify-between p-4 flex-shrink-0 bg-surface-container-lowest border-r border-outline-variant fixed left-0 top-0 z-30">
+<div class="flex flex-col gap-6">
+<!-- Header / Brand -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="agriculture" style="font-variation-settings: 'FILL' 1;">agriculture</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="text-body-lg font-headline-sm font-bold text-primary leading-tight">AgriCoop Member</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Valley Basin Co-op Yard</span>
+</div>
+</div>
+<!-- Action Button CTA -->
+<a href="User_QuickReserve.html" class="w-full h-11 bg-primary text-on-primary font-headline-sm text-label-md font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-label-lg" data-icon="add_circle">add_circle</span>
+        Reserve Equipment
+</a>
+<!-- Navigation Links -->
+<nav aria-label="Main Navigation" class="flex flex-col gap-1.5">
+<!-- Active: Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors" href="UserDashboard.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<!-- Inactive: Browse Equipment -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors" href="User_Browse.html">
+<span class="material-symbols-outlined" data-icon="agriculture">agriculture</span>
+<span class="">Browse Equipment</span>
+</a>
+<!-- Inactive: My Reservations -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-container text-primary font-label-md text-label-md font-semibold border-l-4 border-primary" href="User_Reservation.html">
+<span class="material-symbols-outlined" data-icon="event_note" style="font-variation-settings: 'FILL' 1;">event_note</span>
+<span class="">My Reservations</span>
+</a>
+<!-- Inactive: My Profile -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors" href="User_Profile.html">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="">My Profile</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Footer -->
+<div class="flex flex-col gap-2 pt-4 border-t border-outline-variant">
+<div class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-primary" data-icon="badge">badge</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">C. Miller Farm (#1042)</span>
+<span class="font-label-sm text-label-sm text-outline">Tier 1 Voting Co-op</span>
+</div>
+</div>
+</div>
+<a href="index.html" class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-error font-label-md text-label-md hover:bg-error-container/40 transition-colors">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 md:ml-64 flex flex-col min-h-screen">
+<!-- Top Bar Component -->
+<header class="flex justify-between items-center h-16 px-6 w-full bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-20">
+<div class="flex items-center gap-4">
+<!-- Mobile Drawer Toggle -->
+<button aria-label="Open menu" class="md:hidden p-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<!-- Telemetry Status Pills -->
+
+</div>
+<!-- Right Controls -->
+<div class="flex items-center gap-4"><div class="relative w-64 md:w-80"><input class="w-full pl-9 pr-3 py-1.5 font-body-sm text-body-sm bg-surface rounded-lg border border-outline-variant focus:outline-none focus:border-primary text-on-surface" placeholder="Search equipment or ID..." type="text"><span class="material-symbols-outlined absolute left-2.5 top-2 text-on-surface-variant text-label-lg" data-icon="search">search</span></div></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-6 md:p-8 space-y-8 max-w-7xl w-full mx-auto">
+<!-- Page Header Banner -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-outline-variant">
+<div>
+<h1 class="text-headline-lg font-headline-lg text-primary tracking-tight">My Reservations</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">
+            View live bookings, rental statuses, and schedule details linked to Member Account #1042.
+          </p>
+</div>
+<div class="flex items-center gap-2.5">
+<button class="inline-flex items-center gap-2 px-3 py-2 border border-outline-variant bg-surface-container-lowest rounded font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_month">calendar_month</span>
+<span class="">May 2025</span>
+</button>
+
+</div>
+</div>
+<!-- Status Summary Filter Chips -->
+<div aria-label="Reservation Status Filter" class="flex flex-wrap items-center gap-2.5" role="tablist">
+<button aria-selected="true" class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-primary text-on-primary font-label-md text-label-md rounded border border-primary transition-colors" role="tab" type="button">
+<span class="">All</span>
+<span class="px-1.5 py-0.2 bg-primary-container text-on-primary rounded text-label-sm font-label-sm font-bold">2</span>
+</button>
+<button aria-selected="false" class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded border border-outline-variant hover:bg-surface-container-low transition-colors" role="tab" type="button">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="">Approved</span>
+<span class="px-1.5 py-0.2 bg-surface-container text-on-surface-variant rounded text-label-sm font-label-sm">1</span>
+</button>
+<button aria-selected="false" class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded border border-outline-variant hover:bg-surface-container-low transition-colors" role="tab" type="button">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="">Pending</span>
+<span class="px-1.5 py-0.2 bg-surface-container text-on-surface-variant rounded text-label-sm font-label-sm">1</span>
+</button>
+<button aria-selected="false" class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded border border-outline-variant hover:bg-surface-container-low transition-colors" role="tab" type="button">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="">Completed</span>
+<span class="px-1.5 py-0.2 bg-surface-container text-on-surface-variant rounded text-label-sm font-label-sm">4</span>
+</button>
+</div>
+<!-- Main Active Reservations Table Container -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm overflow-hidden">
+<div class="px-5 py-4 border-b border-outline-variant flex items-center justify-between bg-surface-bright">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="receipt_long">receipt_long</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Active &amp; Pending Schedule</h2>
+</div>
+
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<th class="py-3 px-4" scope="col">Reference #</th>
+<th class="py-3 px-4" scope="col">Equipment Name</th>
+<th class="py-3 px-4" scope="col">Pickup Date</th>
+<th class="py-3 px-4" scope="col">Due Date</th>
+<th class="py-3 px-4" scope="col">Daily Rate</th>
+<th class="py-3 px-4" scope="col">Total Cost</th>
+<th class="py-3 px-4" scope="col">Status</th>
+<th class="py-3 px-4 text-right" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant font-body-sm text-body-sm text-on-surface">
+<!-- Row 1: Approved Kubota -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 px-4 font-label-md text-label-md font-semibold text-primary">
+                  #RES-2025-081
+                </td>
+<td class="py-3.5 px-4">
+<div class="font-medium text-on-background">Kubota Compact Tractor</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs text-outline" data-icon="location_on">location_on</span>
+                    Tractor Yard #4
+                  </div>
+</td>
+<td class="py-3.5 px-4 font-label-md text-label-md text-on-surface">2025-05-02</td>
+<td class="py-3.5 px-4 font-label-md text-label-md text-on-surface">2025-05-05</td>
+<td class="py-3.5 px-4 font-label-md text-label-md">$75/day</td>
+<td class="py-3.5 px-4 font-label-md text-label-md font-semibold text-on-surface">$225</td>
+<td class="py-3.5 px-4">
+<!-- Approved Green Badge -->
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#E8F5E9] text-[#1B5E20] font-label-md text-label-md font-semibold border border-[#C8E6C9]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1B5E20]"></span>
+                    Approved
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center gap-1.5 justify-end">
+<button class="px-2.5 py-1.5 bg-surface-container-lowest hover:bg-surface-container text-primary font-body-sm text-body-sm font-semibold rounded border border-primary transition-colors" type="button">
+                      View Details
+                    </button>
+<button class="px-2.5 py-1.5 bg-surface-container-lowest hover:bg-error-container text-error font-body-sm text-body-sm font-semibold rounded border border-outline-variant hover:border-error transition-colors" type="button">
+                      Cancel Request
+                    </button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Pending Honda Water Pump -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 px-4 font-label-md text-label-md font-semibold text-secondary">
+                  #RES-2025-094
+                </td>
+<td class="py-3.5 px-4">
+<div class="font-medium text-on-background">Honda 3" High-Flow Water Pump</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs text-outline" data-icon="location_on">location_on</span>
+                    Irrigation Section #2
+                  </div>
+</td>
+<td class="py-3.5 px-4 font-label-md text-label-md text-on-surface">2025-05-12</td>
+<td class="py-3.5 px-4 font-label-md text-label-md text-on-surface">2025-05-14</td>
+<td class="py-3.5 px-4 font-label-md text-label-md">$40/day</td>
+<td class="py-3.5 px-4 font-label-md text-label-md font-semibold text-on-surface">$80</td>
+<td class="py-3.5 px-4">
+<!-- Pending Amber Badge -->
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#FFF8E1] text-[#B78103] font-label-md text-label-md font-semibold border border-[#FFE082]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#B78103]"></span>
+                    Pending
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center gap-1.5 justify-end">
+<button class="px-2.5 py-1.5 bg-surface-container-lowest hover:bg-surface-container text-primary font-body-sm text-body-sm font-semibold rounded border border-primary transition-colors" type="button">
+                      View Details
+                    </button>
+<button class="px-2.5 py-1.5 bg-surface-container-lowest hover:bg-error-container text-error font-body-sm text-body-sm font-semibold rounded border border-outline-variant hover:border-error transition-colors" type="button">
+                      Cancel Request
+                    </button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Bento Grid: Rental History & Policies Layout -->
+<section class="w-full bg-surface-container-lowest rounded-lg border border-outline-variant p-6 shadow-sm flex flex-col gap-6"><div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-outline-variant gap-2"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-secondary" data-icon="policy">policy</span><div><h3 class="text-headline-sm font-headline-sm text-on-surface">Cooperative Rental Policies</h3><p class="text-body-sm font-body-sm text-on-surface-variant">Standard operating procedures and compliance rules for all equipment rentals</p></div></div><span class="px-2.5 py-1 bg-surface-container-low font-label-sm text-label-sm rounded text-on-surface-variant font-medium self-start sm:self-auto">Member Terms v2.4</span></div><div class="grid grid-cols-1 md:grid-cols-3 gap-4"><div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant flex flex-col justify-between gap-3"><div class="flex items-start gap-3"><div class="w-7 h-7 rounded bg-surface-container flex-shrink-0 flex items-center justify-center text-primary font-label-md text-label-md font-bold">1</div><div class="flex-1"><h4 class="font-semibold text-on-surface font-body-sm text-body-sm mb-1">Return Inspection &amp; Staging</h4><p class="font-body-sm text-body-sm text-on-surface-variant">All implements must be returned clean of heavy soil and debris to their designated yard stall. Complete the sign-in kiosk QR scan upon drop-off.</p></div></div></div><div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant flex flex-col justify-between gap-3"><div class="flex items-start gap-3"><div class="w-7 h-7 rounded bg-surface-container flex-shrink-0 flex items-center justify-center text-primary font-label-md text-label-md font-bold">2</div><div class="flex-1"><h4 class="font-semibold text-on-surface font-body-sm text-body-sm mb-1">24-Hour Checkout Grace Window</h4><p class="font-body-sm text-body-sm text-on-surface-variant">Pickups must occur within 2 hours of reservation start time. Unclaimed units are released back to general pool after 24 hours without dispatch notice.</p></div></div></div><div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant flex flex-col justify-between gap-3"><div class="flex items-start gap-3"><div class="w-7 h-7 rounded bg-surface-container flex-shrink-0 flex items-center justify-center text-primary font-label-md text-label-md font-bold">3</div><div class="flex-1"><h4 class="font-semibold text-on-surface font-body-sm text-body-sm mb-1">Fuel Replacement &amp; Fluid Top-off</h4><p class="font-body-sm text-body-sm text-on-surface-variant">Tractors and diesel pumps depart full. Return with full tank (Off-road #2 Diesel or 87 Unleaded) or pay standard depot rate plus a 15% surcharge.</p></div></div></div></div></section>
+</main>
+</div>
+
+
+
+
+
+
+
+
+
+
+</body></html>
