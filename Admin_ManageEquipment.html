@@ -1,0 +1,695 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Manage Equipment - AgriCoop Admin</title>
+<!-- Google Fonts: Work Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#e1e3e1",
+            "on-tertiary": "#ffffff",
+            "outline-variant": "#c1c9be",
+            "on-background": "#191c1b",
+            "on-tertiary-fixed-variant": "#005312",
+            "surface-bright": "#f8faf8",
+            "on-secondary-fixed": "#2f1500",
+            "on-primary-fixed": "#00210b",
+            "outline": "#717970",
+            "secondary-container": "#fe932c",
+            "on-surface-variant": "#414941",
+            "tertiary-fixed-dim": "#88d982",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#005011",
+            "error-container": "#ffdad6",
+            "background": "#f8faf8",
+            "surface-container-high": "#e6e9e7",
+            "surface-container": "#eceeec",
+            "surface-container-low": "#f2f4f2",
+            "on-error": "#ffffff",
+            "inverse-surface": "#2e3130",
+            "on-primary-container": "#8bbd92",
+            "on-primary-fixed-variant": "#21502e",
+            "on-secondary-fixed-variant": "#6e3900",
+            "on-secondary-container": "#663500",
+            "surface-tint": "#396844",
+            "on-tertiary-container": "#73c46f",
+            "inverse-primary": "#a0d3a6",
+            "on-surface": "#191c1b",
+            "on-secondary": "#ffffff",
+            "surface": "#f8faf8",
+            "inverse-on-surface": "#eff1ef",
+            "secondary-fixed-dim": "#ffb77d",
+            "on-primary": "#ffffff",
+            "surface-variant": "#e1e3e1",
+            "on-tertiary-fixed": "#002204",
+            "tertiary-fixed": "#a3f69c",
+            "primary": "#023616",
+            "secondary": "#904d00",
+            "primary-fixed-dim": "#a0d3a6",
+            "primary-fixed": "#bbefc1",
+            "primary-container": "#1e4d2b",
+            "error": "#ba1a1a",
+            "on-error-container": "#93000a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter-mobile": "1rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "body-md": ["Work Sans"],
+            "headline-lg-mobile": ["Work Sans"],
+            "headline-md": ["Work Sans"],
+            "label-lg": ["JetBrains Mono"],
+            "body-lg": ["Work Sans"],
+            "headline-xl": ["Work Sans"],
+            "body-sm": ["Work Sans"],
+            "headline-lg": ["Work Sans"],
+            "headline-sm": ["Work Sans"],
+            "label-md": ["JetBrains Mono"],
+            "label-sm": ["JetBrains Mono"],
+            "headline-xl-mobile": ["Work Sans"]
+          },
+          "fontSize": {
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md h-full flex overflow-hidden antialiased">
+<!-- LEFT SIDEBAR COMPONENT (Following JSON anchors & specs) -->
+<aside class="h-screen w-64 flex flex-col shrink-0 bg-surface-container-lowest border-r border-outline-variant">
+<div class="flex flex-col h-full justify-between p-4">
+<!-- Top Brand Block -->
+<div>
+<div class="flex items-center gap-3 px-2 py-3 border-b border-surface-container pb-4 mb-4">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-2xl" data-icon="agriculture">agriculture</span>
+</div>
+<div class="overflow-hidden">
+<h1 class="font-headline-sm text-headline-sm text-primary leading-tight font-bold tracking-tight truncate">AgriCoop Admin</h1>
+<p class="font-label-md text-label-md text-on-surface-variant truncate">Station Yard System</p>
+</div>
+</div>
+<!-- Dispatch CTA quick trigger -->
+
+<!-- Navigation Tabs -->
+<nav class="space-y-1">
+<!-- Inactive Tab: Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="dashboard">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<!-- ACTIVE Tab: Manage Equipment (Intent locked per JSON: bg-primary-container text-on-primary) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded bg-primary-container text-on-primary font-body-md text-body-md font-semibold shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="agriculture" data-weight="fill" style="font-variation-settings: 'FILL' 1;">agriculture</span>
+<span class="">Manage Equipment</span>
+</a>
+<!-- Inactive Tab: Manage Reservations -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="calendar_month">calendar_month</span>
+<span class="">Manage Reservations</span>
+</a>
+<!-- Inactive Tab: Manage Members -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="group">group</span>
+<span class="">Manage Members</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Nav / System Settings & Logout -->
+<div class="border-t border-surface-container pt-3 space-y-1">
+
+
+<a class="flex items-center gap-3 px-3 py-2 rounded text-error hover:bg-error-container hover:text-on-error-container transition-colors font-body-sm text-body-sm mt-2" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="logout">logout</span>
+<span class="font-semibold">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- MAIN VIEWPORT CONTAINER -->
+<div class="flex-1 flex flex-col h-screen overflow-hidden bg-background">
+<!-- TOP HEADER -->
+<header class="bg-surface-container-lowest border-b border-outline-variant px-8 py-4 flex items-center justify-between shrink-0">
+<div>
+<h1 class="font-headline-md text-headline-md text-primary font-bold tracking-tight">Manage Equipment</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Catalog, update status, and manage agricultural machinery and hand tools.</p>
+</div>
+<!-- Right side: Admin profile badge (Explicitly NO operating season badge!) -->
+<div class="flex items-center gap-4">
+<!-- Quick Action Notification -->
+
+
+<!-- Administrator Identity Module -->
+<div class="flex items-center gap-3 pl-1">
+<div class="text-right">
+<p class="font-body-sm text-body-sm font-semibold text-on-surface leading-none">Admin User</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Administrator</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-primary font-bold font-headline-sm overflow-hidden ring-2 ring-surface-container-low">
+<span class="material-symbols-outlined text-2xl" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<!-- WORKSPACE CANVAS (Scrollable) -->
+<main class="flex-1 overflow-y-auto p-8 space-y-6">
+<!-- QUICK SUMMARY KPI CARDS (Bento Summary Matrix) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Total Inventory Units -->
+<div class="bg-surface-container-lowest p-4 rounded border border-outline-variant shadow-sm flex items-start justify-between">
+<div>
+<p class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider font-semibold">Total Inventory Units</p>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mt-1">35 <span class="font-label-md text-label-md text-on-surface-variant font-normal">units</span></h2>
+<div class="flex items-center gap-1.5 mt-2 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm" data-icon="inventory_2">inventory_2</span>
+<span class="">Across 8 operational lines</span>
+</div>
+</div>
+<div class="p-2.5 rounded bg-surface-container-low text-primary">
+<span class="material-symbols-outlined text-xl" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+</div>
+<!-- Active in Field -->
+<div class="bg-surface-container-lowest p-4 rounded border border-outline-variant shadow-sm flex items-start justify-between">
+<div>
+<p class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider font-semibold">Active in Field</p>
+<h2 class="font-headline-lg text-headline-lg font-bold text-secondary mt-1">3 <span class="font-label-md text-label-md text-on-surface-variant font-normal">reserved</span></h2>
+<div class="flex items-center gap-1.5 mt-2 text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm" data-icon="pending_actions">pending_actions</span>
+<span class="">8.5% deployment rate</span>
+</div>
+</div>
+<div class="p-2.5 rounded bg-secondary-fixed/40 text-secondary">
+<span class="material-symbols-outlined text-xl" data-icon="calendar_month">calendar_month</span>
+</div>
+</div>
+<!-- In Yard / Ready -->
+<div class="bg-surface-container-lowest p-4 rounded border border-outline-variant shadow-sm flex items-start justify-between">
+<div>
+<p class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider font-semibold">In Yard / Ready</p>
+<h2 class="font-headline-lg text-headline-lg font-bold text-primary mt-1">31 <span class="font-label-md text-label-md text-on-surface-variant font-normal">available</span></h2>
+<div class="flex items-center gap-1.5 mt-2 text-primary-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+<span class="">Available for dispatch</span>
+</div>
+</div>
+<div class="p-2.5 rounded bg-primary-fixed/40 text-primary">
+<span class="material-symbols-outlined text-xl" data-icon="warehouse">warehouse</span>
+</div>
+</div>
+<!-- Needs Maintenance -->
+<div class="bg-surface-container-lowest p-4 rounded border border-outline-variant shadow-sm flex items-start justify-between">
+<div>
+<p class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider font-semibold">Needs Maintenance</p>
+<h2 class="font-headline-lg text-headline-lg font-bold text-error mt-1">1 <span class="font-label-md text-label-md text-on-surface-variant font-normal">offline</span></h2>
+<div class="flex items-center gap-1.5 mt-2 text-error font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm" data-icon="build">build</span>
+<span class="">Combine Harvester in bay 2</span>
+</div>
+</div>
+<div class="p-2.5 rounded bg-error-container text-error">
+<span class="material-symbols-outlined text-xl" data-icon="car_repair">car_repair</span>
+</div>
+</div>
+</section>
+<!-- ACTION BAR & FILTER CONTROLS -->
+<section class="bg-surface-container-lowest p-4 rounded border border-outline-variant space-y-4 shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<!-- Search input for equipment name or code -->
+<div class="relative flex-1 max-w-md">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-xl" data-icon="search">search</span>
+</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-bright text-on-surface border border-outline-variant rounded focus:border-primary-container focus:ring-2 focus:ring-primary/20 font-body-sm text-body-sm transition-all placeholder:text-outline" placeholder="Search by equipment name or code (e.g., EQ-01, Tractor)..." type="text">
+</div>
+<!-- Status filter dropdown & Add Button -->
+<div class="flex items-center gap-3 flex-wrap">
+<div class="flex items-center gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold" for="status-filter">Status:</label>
+<select class="bg-surface-bright text-on-surface border border-outline-variant rounded px-3 py-2 font-body-sm text-body-sm focus:border-primary-container focus:ring-2 focus:ring-primary/20 cursor-pointer" id="status-filter">
+<option value="all">All Statuses</option>
+<option value="available">Available</option>
+<option value="reserved">Reserved</option>
+<option value="maintenance">Under Maintenance</option>
+</select>
+</div>
+<!-- Primary Add Equipment Button -->
+<button class="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-[#163920] text-on-primary font-body-md text-body-sm font-bold rounded transition-colors shadow-sm cursor-pointer h-10">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+<span class="">+ Add New Equipment</span>
+</button>
+</div>
+</div>
+<!-- Filter category pills -->
+<div class="flex items-center gap-2 pt-2 border-t border-surface-container overflow-x-auto pb-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold mr-1 shrink-0">Category:</span>
+<button class="px-3 py-1 rounded bg-primary text-on-primary font-label-md text-label-md font-semibold shrink-0 transition-colors">
+            All Equipment (15)
+          </button>
+<button class="px-3 py-1 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md border border-outline-variant shrink-0 transition-colors">
+            Basic Hand Tools (8)
+          </button>
+<button class="px-3 py-1 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md border border-outline-variant shrink-0 transition-colors">
+            Farm Implements (3)
+          </button>
+<button class="px-3 py-1 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md border border-outline-variant shrink-0 transition-colors">
+            Powered Machinery (4)
+          </button>
+</div>
+</section>
+<!-- EQUIPMENT ROSTER TABLE & INVENTORY GRID -->
+<section class="bg-surface-container-lowest rounded border border-outline-variant overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="py-3 px-4 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold" scope="col">Equipment Code</th>
+<th class="py-3 px-4 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold" scope="col">Equipment Name</th>
+<th class="py-3 px-4 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold" scope="col">Category</th>
+<th class="py-3 px-4 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold" scope="col">Daily Rate</th>
+<th class="py-3 px-4 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold" scope="col">Current Status</th>
+<th class="py-3 px-4 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold text-center" scope="col">Total Units</th>
+<th class="py-3 px-4 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold text-right" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/60 font-body-sm text-body-sm">
+<!-- 1. Kubota Compact 4WD Tractor -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="font-label-md text-label-md font-semibold text-primary">EQ-01</div>
+
+</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary" data-icon="agriculture">agriculture</span>
+<span class="">Kubota Compact 4WD Tractor</span>
+</div>
+
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+                    Powered
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap font-label-md text-label-md font-semibold text-on-surface">
+                  $75<span class="text-outline font-normal">/day</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#E8F5E9] text-[#1B5E20] font-label-md text-label-md font-semibold border border-[#C8E6C9]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1B5E20]"></span>
+                    Available
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center whitespace-nowrap font-label-md text-label-md font-semibold text-on-surface">
+                  2 units
+                </td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Edit Item">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary transition-colors" title="Change Status">
+<span class="material-symbols-outlined text-lg" data-icon="sync_alt">sync_alt</span>
+</button>
+<button class="p-1.5 rounded hover:bg-error-container text-on-surface-variant hover:text-error transition-colors" title="Delete / Archive">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- 2. Bolo / Machete -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="font-label-md text-label-md font-semibold text-primary">EQ-02</div>
+
+</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary" data-icon="hardware">hardware</span>
+<span class="">Bolo / Machete</span>
+</div>
+
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+                    Basic Hand Tool
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap font-label-md text-label-md font-semibold text-on-surface">
+                  $2<span class="text-outline font-normal">/day</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#E8F5E9] text-[#1B5E20] font-label-md text-label-md font-semibold border border-[#C8E6C9]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1B5E20]"></span>
+                    Available
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center whitespace-nowrap font-label-md text-label-md font-semibold text-on-surface">
+                  10 units
+                </td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Edit Item">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary transition-colors" title="Change Status">
+<span class="material-symbols-outlined text-lg" data-icon="sync_alt">sync_alt</span>
+</button>
+<button class="p-1.5 rounded hover:bg-error-container text-on-surface-variant hover:text-error transition-colors" title="Delete / Archive">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- 3. High-Flow Irrigation Pump -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="font-label-md text-label-md font-semibold text-primary">EQ-03</div>
+
+</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary" data-icon="water_pump">water_pump</span>
+<span class="">High-Flow Irrigation Pump</span>
+</div>
+
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+                    Powered
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap font-label-md text-label-md font-semibold text-on-surface">
+                  $40<span class="text-outline font-normal">/day</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#FFF8E1] text-[#B45309] font-label-md text-label-md font-semibold border border-[#FFE082]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#B45309]"></span>
+                    Reserved
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center whitespace-nowrap font-label-md text-label-md font-semibold text-on-surface">
+                  3 units
+                </td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Edit Item">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary transition-colors" title="Change Status">
+<span class="material-symbols-outlined text-lg" data-icon="sync_alt">sync_alt</span>
+</button>
+<button class="p-1.5 rounded hover:bg-error-container text-on-surface-variant hover:text-error transition-colors" title="Delete / Archive">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- 4. Combine Harvester -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="font-label-md text-label-md font-semibold text-primary">EQ-04</div>
+
+</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary" data-icon="agriculture">agriculture</span>
+<span class="">Combine Harvester</span>
+</div>
+
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+                    Powered
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap font-label-md text-label-md font-semibold text-on-surface">
+                  $120<span class="text-outline font-normal">/day</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#FBE9E7] text-[#C62828] font-label-md text-label-md font-semibold border border-[#FFCCBC]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#C62828]"></span>
+                    Under Maintenance
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center whitespace-nowrap font-label-md text-label-md font-semibold text-on-surface">
+                  1 unit
+                </td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Edit Item">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary transition-colors" title="Change Status">
+<span class="material-symbols-outlined text-lg" data-icon="sync_alt">sync_alt</span>
+</button>
+<button class="p-1.5 rounded hover:bg-error-container text-on-surface-variant hover:text-error transition-colors" title="Delete / Archive">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- 5. Disc Plow -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="font-label-md text-label-md font-semibold text-primary">EQ-05</div>
+
+</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary" data-icon="handyman">handyman</span>
+<span class="">Disc Plow</span>
+</div>
+
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+                    Farm Implement
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap font-label-md text-label-md font-semibold text-on-surface">
+                  $22<span class="text-outline font-normal">/day</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#E8F5E9] text-[#1B5E20] font-label-md text-label-md font-semibold border border-[#C8E6C9]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1B5E20]"></span>
+                    Available
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center whitespace-nowrap font-label-md text-label-md font-semibold text-on-surface">
+                  3 units
+                </td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Edit Item">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary transition-colors" title="Change Status">
+<span class="material-symbols-outlined text-lg" data-icon="sync_alt">sync_alt</span>
+</button>
+<button class="p-1.5 rounded hover:bg-error-container text-on-surface-variant hover:text-error transition-colors" title="Delete / Archive">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- 6. Disc Harrow -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="font-label-md text-label-md font-semibold text-primary">EQ-06</div>
+
+</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary" data-icon="format_indent_increase">format_indent_increase</span>
+<span class="">Disc Harrow</span>
+</div>
+
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+                    Farm Implement
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap font-label-md text-label-md font-semibold text-on-surface">
+                  $20<span class="text-outline font-normal">/day</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#E8F5E9] text-[#1B5E20] font-label-md text-label-md font-semibold border border-[#C8E6C9]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1B5E20]"></span>
+                    Available
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center whitespace-nowrap font-label-md text-label-md font-semibold text-on-surface">
+                  2 units
+                </td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Edit Item">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary transition-colors" title="Change Status">
+<span class="material-symbols-outlined text-lg" data-icon="sync_alt">sync_alt</span>
+</button>
+<button class="p-1.5 rounded hover:bg-error-container text-on-surface-variant hover:text-error transition-colors" title="Delete / Archive">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- 7. Knapsack Sprayer -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="font-label-md text-label-md font-semibold text-primary">EQ-07</div>
+
+</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary" data-icon="sanitizer">sanitizer</span>
+<span class="">Knapsack Sprayer</span>
+</div>
+
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+                    Basic Hand Tool
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap font-label-md text-label-md font-semibold text-on-surface">
+                  $5<span class="text-outline font-normal">/day</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#E8F5E9] text-[#1B5E20] font-label-md text-label-md font-semibold border border-[#C8E6C9]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1B5E20]"></span>
+                    Available
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center whitespace-nowrap font-label-md text-label-md font-semibold text-on-surface">
+                  8 units
+                </td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Edit Item">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary transition-colors" title="Change Status">
+<span class="material-symbols-outlined text-lg" data-icon="sync_alt">sync_alt</span>
+</button>
+<button class="p-1.5 rounded hover:bg-error-container text-on-surface-variant hover:text-error transition-colors" title="Delete / Archive">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- 8. Heavy Duty Wheelbarrow -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group">
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="font-label-md text-label-md font-semibold text-primary">EQ-08</div>
+
+</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary" data-icon="shopping_cart">shopping_cart</span>
+<span class="">Heavy Duty Wheelbarrow</span>
+</div>
+
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+                    Basic Hand Tool
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap font-label-md text-label-md font-semibold text-on-surface">
+                  $4<span class="text-outline font-normal">/day</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#E8F5E9] text-[#1B5E20] font-label-md text-label-md font-semibold border border-[#C8E6C9]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1B5E20]"></span>
+                    Available
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center whitespace-nowrap font-label-md text-label-md font-semibold text-on-surface">
+                  6 units
+                </td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Edit Item">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary transition-colors" title="Change Status">
+<span class="material-symbols-outlined text-lg" data-icon="sync_alt">sync_alt</span>
+</button>
+<button class="p-1.5 rounded hover:bg-error-container text-on-surface-variant hover:text-error transition-colors" title="Delete / Archive">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- PAGINATION & METADATA FOOTER -->
+<div class="bg-surface-container-low border-t border-outline-variant px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+            Showing <span class="font-semibold text-on-surface">1</span> to <span class="font-semibold text-on-surface">8</span> of <span class="font-semibold text-on-surface">8</span> items (<span class="font-semibold text-on-surface">35</span> total units)
+          </div>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1.5 rounded border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors disabled:opacity-40 disabled:cursor-not-allowed font-label-md text-label-md" disabled="">
+<span class="material-symbols-outlined text-base align-middle" data-icon="chevron_left">chevron_left</span>
+              Previous
+            </button>
+<button class="px-3 py-1.5 rounded bg-primary text-on-primary font-label-md text-label-md font-semibold shadow-sm">
+              1
+            </button>
+<button class="px-2.5 py-1.5 rounded border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors disabled:opacity-40 disabled:cursor-not-allowed font-label-md text-label-md" disabled="">
+              Next
+              <span class="material-symbols-outlined text-base align-middle" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+</div>
+
+
+
+
+</body></html>
