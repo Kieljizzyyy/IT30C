@@ -1,0 +1,553 @@
+<!DOCTYPE html><html class="h-full" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Manage Members - AgriCoop Admin</title>
+<!-- Google Fonts: Work Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#e1e3e1",
+            "on-tertiary": "#ffffff",
+            "outline-variant": "#c1c9be",
+            "on-background": "#191c1b",
+            "on-tertiary-fixed-variant": "#005312",
+            "surface-bright": "#f8faf8",
+            "on-secondary-fixed": "#2f1500",
+            "on-primary-fixed": "#00210b",
+            "outline": "#717970",
+            "secondary-container": "#fe932c",
+            "on-surface-variant": "#414941",
+            "tertiary-fixed-dim": "#88d982",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#005011",
+            "error-container": "#ffdad6",
+            "background": "#f8faf8",
+            "surface-container-high": "#e6e9e7",
+            "surface-container": "#eceeec",
+            "surface-container-low": "#f2f4f2",
+            "on-error": "#ffffff",
+            "inverse-surface": "#2e3130",
+            "on-primary-container": "#8bbd92",
+            "on-primary-fixed-variant": "#21502e",
+            "on-secondary-fixed-variant": "#6e3900",
+            "on-secondary-container": "#663500",
+            "surface-tint": "#396844",
+            "on-tertiary-container": "#73c46f",
+            "inverse-primary": "#a0d3a6",
+            "on-surface": "#191c1b",
+            "on-secondary": "#ffffff",
+            "surface": "#f8faf8",
+            "inverse-on-surface": "#eff1ef",
+            "secondary-fixed-dim": "#ffb77d",
+            "on-primary": "#ffffff",
+            "surface-variant": "#e1e3e1",
+            "on-tertiary-fixed": "#002204",
+            "tertiary-fixed": "#a3f69c",
+            "primary": "#023616",
+            "secondary": "#904d00",
+            "primary-fixed-dim": "#a0d3a6",
+            "primary-fixed": "#bbefc1",
+            "primary-container": "#1e4d2b",
+            "error": "#ba1a1a",
+            "on-error-container": "#93000a"
+          },
+          "fontFamily": {
+            "body-md": ["Work Sans", "sans-serif"],
+            "headline-lg": ["Work Sans", "sans-serif"],
+            "headline-md": ["Work Sans", "sans-serif"],
+            "headline-sm": ["Work Sans", "sans-serif"],
+            "label-lg": ["JetBrains Mono", "monospace"],
+            "label-md": ["JetBrains Mono", "monospace"],
+            "label-sm": ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-[#f8faf8] flex text-[#1e4d2b] font-['Work_Sans',sans-serif] antialiased">
+<!-- LEFT SIDEBAR -->
+<aside class="w-64 bg-white border-r border-[#d8dad9] flex flex-col justify-between shrink-0 h-screen sticky top-0 p-5">
+<div>
+<!-- Brand Block -->
+<div class="flex items-center gap-3 pb-4 mb-4 border-b border-[#eceeec]">
+<div class="w-10 h-10 rounded-lg bg-[#1e4d2b] text-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-2xl" data-icon="agriculture">agriculture</span>
+</div>
+<div class="overflow-hidden">
+<h1 class="font-bold text-lg text-[#023616] leading-tight tracking-tight truncate">AgriCoop Admin</h1>
+<p class="font-['JetBrains_Mono'] text-xs text-[#717970] truncate">Station Yard System</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="space-y-1">
+<!-- Inactive Tab: Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#414941] hover:bg-[#eceeec] hover:text-[#191c1b] transition-colors group text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-[#023616] transition-colors" data-icon="grid_view">grid_view</span>
+<span class="">Dashboard</span>
+</a>
+<!-- Inactive Tab: Manage Equipment -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#414941] hover:bg-[#eceeec] hover:text-[#191c1b] transition-colors group text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-[#023616] transition-colors" data-icon="agriculture">agriculture</span>
+<span class="">Manage Equipment</span>
+</a>
+<!-- Inactive Tab: Manage Reservations -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#414941] hover:bg-[#eceeec] hover:text-[#191c1b] transition-colors group text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-[#023616] transition-colors" data-icon="calendar_month">calendar_month</span>
+<span class="">Manage Reservations</span>
+</a>
+<!-- ACTIVE Tab: Manage Members -->
+<a class="bg-[#1e4d2b] text-white font-semibold rounded-lg px-3 py-2.5 flex items-center gap-3 shadow-sm text-sm" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="">Manage Members</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Sidebar Footer -->
+<div class="border-t border-[#eceeec] pt-3">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-red-600 hover:bg-[#ffdad6] transition-colors text-sm font-semibold" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="logout">logout</span>
+<span class="">Logout</span>
+</a>
+</div>
+</aside>
+<!-- MAIN CONTENT AREA -->
+<div class="flex-1 min-w-0 p-8 overflow-y-auto">
+<!-- Top Header row -->
+<header class="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-6 border-b border-[#d8dad9] gap-4">
+<div>
+<h1 class="text-3xl font-bold text-[#023616] tracking-tight">Manage Members</h1>
+<p class="text-sm text-[#414941] mt-1">Directory, account standing, and contact information for cooperative farmers.</p>
+</div>
+<!-- Admin profile pill -->
+<div class="flex items-center gap-3 shrink-0">
+<div class="text-right">
+<p class="text-sm font-semibold text-[#191c1b] leading-tight">Admin User</p>
+<p class="font-['JetBrains_Mono'] text-xs text-[#717970]">Administrator</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-[#eceeec] border border-[#c1c9be] flex items-center justify-center text-[#023616] overflow-hidden shadow-sm">
+<span class="material-symbols-outlined text-2xl" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<div class="space-y-6">
+<!-- KPI Summary Cards (Grid of 3 cards matching Manage Equipment style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Card 1: TOTAL MEMBERS -->
+<div class="bg-white p-5 rounded-lg border border-[#c1c9be] shadow-sm flex items-start justify-between">
+<div>
+<p class="font-['JetBrains_Mono'] text-xs uppercase tracking-wider text-[#717970] font-semibold">Total Members</p>
+<h2 class="text-3xl font-bold text-[#191c1b] mt-1.5">42 <span class="text-sm text-[#717970] font-normal">members</span></h2>
+<div class="flex items-center gap-1.5 mt-2.5 text-[#023616] font-['JetBrains_Mono'] text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="badge">badge</span>
+<span class="">Across 6 local barangays</span>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-[#f2f4f2] text-[#023616]">
+<span class="material-symbols-outlined text-2xl" data-icon="group">group</span>
+</div>
+</div>
+<!-- Card 2: ACTIVE MEMBERS -->
+<div class="bg-white p-5 rounded-lg border border-[#c1c9be] shadow-sm flex items-start justify-between">
+<div>
+<p class="font-['JetBrains_Mono'] text-xs uppercase tracking-wider text-[#717970] font-semibold">Active Members</p>
+<h2 class="text-3xl font-bold text-[#023616] mt-1.5">38 <span class="text-sm text-[#717970] font-normal">active</span></h2>
+<div class="flex items-center gap-1.5 mt-2.5 text-[#005011] font-['JetBrains_Mono'] text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+<span class="">Eligible for equipment rental</span>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-[#E8F5E9] text-[#1B5E20]">
+<span class="material-symbols-outlined text-2xl" data-icon="verified">verified</span>
+</div>
+</div>
+<!-- Card 3: INACTIVE MEMBERS -->
+<div class="bg-white p-5 rounded-lg border border-[#c1c9be] shadow-sm flex items-start justify-between">
+<div>
+<p class="font-['JetBrains_Mono'] text-xs uppercase tracking-wider text-[#717970] font-semibold">Inactive Members</p>
+<h2 class="text-3xl font-bold text-[#ba1a1a] mt-1.5">4 <span class="text-sm text-[#717970] font-normal">inactive</span></h2>
+<div class="flex items-center gap-1.5 mt-2.5 text-[#ba1a1a] font-['JetBrains_Mono'] text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="pause_circle">pause_circle</span>
+<span class="">Suspended or pending renewal</span>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-[#ffdad6] text-[#ba1a1a]">
+<span class="material-symbols-outlined text-2xl" data-icon="person_off">person_off</span>
+</div>
+</div>
+</section>
+<!-- Filter & Controls Bar -->
+<section class="bg-white p-5 rounded-lg border border-[#c1c9be] space-y-4 shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<!-- Search input with search icon -->
+<div class="relative flex-1 max-w-md">
+<span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#717970]">
+<span class="material-symbols-outlined text-xl" data-icon="search">search</span>
+</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-[#f8faf8] text-[#191c1b] border border-[#c1c9be] rounded-lg focus:border-[#1e4d2b] focus:ring-2 focus:ring-[#1e4d2b]/20 text-sm transition-all placeholder:text-[#717970]" id="searchInput" placeholder="Search by member name, ID, or email..." type="text">
+</div>
+<!-- Status dropdown filter & Primary Add Member Button -->
+<div class="flex items-center gap-3 flex-wrap">
+<div class="flex items-center gap-2">
+<label class="font-['JetBrains_Mono'] text-xs text-[#414941] font-semibold" for="statusFilter">Status:</label>
+<select class="bg-[#f8faf8] text-[#191c1b] border border-[#c1c9be] rounded-lg px-3 py-2 text-sm focus:border-[#1e4d2b] focus:ring-2 focus:ring-[#1e4d2b]/20 cursor-pointer" id="statusFilter">
+<option value="all">All Statuses</option>
+<option value="active">Active</option>
+<option value="inactive">Inactive</option>
+</select>
+</div>
+<!-- Primary button '+ Add New Member' -->
+<button class="bg-[#1e4d2b] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#163820] flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer text-sm h-10">
+<span class="material-symbols-outlined text-lg" data-icon="person_add">person_add</span>
+<span class="">+ Add New Member</span>
+</button>
+</div>
+</div>
+<!-- Category filter pills -->
+<div class="flex items-center gap-2 pt-3 border-t border-[#eceeec] overflow-x-auto pb-1">
+<span class="font-['JetBrains_Mono'] text-xs text-[#717970] uppercase font-semibold mr-1 shrink-0">Filter By:</span>
+<button class="pill-btn px-3 py-1.5 rounded-md bg-[#1e4d2b] text-white font-['JetBrains_Mono'] text-xs font-semibold shrink-0 transition-colors" id="pillAll" onclick="selectFilterPill('all')">
+            All Members (42)
+          </button>
+<button class="pill-btn px-3 py-1.5 rounded-md bg-[#f2f4f2] hover:bg-[#eceeec] text-[#191c1b] font-['JetBrains_Mono'] text-xs border border-[#c1c9be] shrink-0 transition-colors" id="pillActive" onclick="selectFilterPill('active')">
+            Active (38)
+          </button>
+<button class="pill-btn px-3 py-1.5 rounded-md bg-[#f2f4f2] hover:bg-[#eceeec] text-[#191c1b] font-['JetBrains_Mono'] text-xs border border-[#c1c9be] shrink-0 transition-colors" id="pillInactive" onclick="selectFilterPill('inactive')">
+            Inactive (4)
+          </button>
+</div>
+</section>
+<!-- Member Roster Table -->
+<section class="bg-white rounded-lg border border-[#c1c9be] overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#f2f4f2] border-b border-[#c1c9be]">
+<th class="py-3.5 px-4 font-['JetBrains_Mono'] text-xs uppercase tracking-wider text-[#717970] font-bold" scope="col">Member ID</th>
+<th class="py-3.5 px-4 font-['JetBrains_Mono'] text-xs uppercase tracking-wider text-[#717970] font-bold" scope="col">Member Name</th>
+<th class="py-3.5 px-4 font-['JetBrains_Mono'] text-xs uppercase tracking-wider text-[#717970] font-bold" scope="col">Contact / Email</th>
+<th class="py-3.5 px-4 font-['JetBrains_Mono'] text-xs uppercase tracking-wider text-[#717970] font-bold" scope="col">Location</th>
+<th class="py-3.5 px-4 font-['JetBrains_Mono'] text-xs uppercase tracking-wider text-[#717970] font-bold" scope="col">Status</th>
+<th class="py-3.5 px-4 font-['JetBrains_Mono'] text-xs uppercase tracking-wider text-[#717970] font-bold text-right" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#eceeec] text-sm" id="memberTableBody">
+<!-- Row 1: Charles Miller -->
+<tr class="member-row hover:bg-[#f2f4f2]/70 transition-colors group" data-search="#mb-01 charles miller corn &amp; rice grower c.miller@agricoop.share.bukph +63 917 234 5678 barangay san jose" data-status="active">
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="font-['JetBrains_Mono'] text-sm font-semibold text-[#023616]">#MB-01</div>
+
+</td>
+<td class="py-3.5 px-4"><div class="font-semibold text-[#191c1b]">Charles Miller</div></td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="text-[#191c1b] font-medium">+63 917 234 5678</div>
+<div class="font-['JetBrains_Mono'] text-xs text-[#717970]">c.miller@agricoop.share.bukph</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 text-[#191c1b]">
+<span class="material-symbols-outlined text-base text-[#023616]" data-icon="location_on">location_on</span>
+                    Barangay San Jose
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#E8F5E9] text-[#1B5E20] font-['JetBrains_Mono'] text-xs font-semibold border border-[#C8E6C9]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1B5E20]"></span>
+                    Active
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-[#eceeec] text-[#414941] hover:text-[#023616] transition-colors" title="Edit Member">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-[#ffdad6] text-[#414941] hover:text-[#ba1a1a] transition-colors" onclick="handleDeleteRow(this)" title="Delete Member">
+<span class="material-symbols-outlined text-lg text-red-600" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Elena Santos -->
+<tr class="member-row hover:bg-[#f2f4f2]/70 transition-colors group" data-search="#mb-02 elena santos vegetable farming e.santos@agricoop.share.bukph +63 920 876 5432 barangay poblacion" data-status="active">
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="font-['JetBrains_Mono'] text-sm font-semibold text-[#023616]">#MB-02</div>
+
+</td>
+<td class="py-3.5 px-4"><div class="font-semibold text-[#191c1b]">Elena Santos</div></td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="text-[#191c1b] font-medium">+63 920 876 5432</div>
+<div class="font-['JetBrains_Mono'] text-xs text-[#717970]">e.santos@agricoop.share.bukph</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 text-[#191c1b]">
+<span class="material-symbols-outlined text-base text-[#023616]" data-icon="location_on">location_on</span>
+                    Barangay Poblacion
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#E8F5E9] text-[#1B5E20] font-['JetBrains_Mono'] text-xs font-semibold border border-[#C8E6C9]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1B5E20]"></span>
+                    Active
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-[#eceeec] text-[#414941] hover:text-[#023616] transition-colors" title="Edit Member">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-[#ffdad6] text-[#414941] hover:text-[#ba1a1a] transition-colors" onclick="handleDeleteRow(this)" title="Delete Member">
+<span class="material-symbols-outlined text-lg text-red-600" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Mateo Dela Cruz -->
+<tr class="member-row hover:bg-[#f2f4f2]/70 transition-colors group" data-search="#mb-03 mateo dela cruz sugarcane &amp; rice m.delacruz@agricoop.share.bukph +63 939 123 4567 barangay dalwangan" data-status="active">
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="font-['JetBrains_Mono'] text-sm font-semibold text-[#023616]">#MB-03</div>
+
+</td>
+<td class="py-3.5 px-4"><div class="font-semibold text-[#191c1b]">Mateo Dela Cruz</div></td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="text-[#191c1b] font-medium">+63 939 123 4567</div>
+<div class="font-['JetBrains_Mono'] text-xs text-[#717970]">m.delacruz@agricoop.share.bukph</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 text-[#191c1b]">
+<span class="material-symbols-outlined text-base text-[#023616]" data-icon="location_on">location_on</span>
+                    Barangay Dalwangan
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#E8F5E9] text-[#1B5E20] font-['JetBrains_Mono'] text-xs font-semibold border border-[#C8E6C9]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1B5E20]"></span>
+                    Active
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-[#eceeec] text-[#414941] hover:text-[#023616] transition-colors" title="Edit Member">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-[#ffdad6] text-[#414941] hover:text-[#ba1a1a] transition-colors" onclick="handleDeleteRow(this)" title="Delete Member">
+<span class="material-symbols-outlined text-lg text-red-600" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Roberto Tan -->
+<tr class="member-row hover:bg-[#f2f4f2]/70 transition-colors group" data-search="#mb-04 roberto tan coffee plantation r.tan@agricoop.share.bukph +63 915 765 4321 barangay impasug-ong" data-status="inactive">
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="font-['JetBrains_Mono'] text-sm font-semibold text-[#023616]">#MB-04</div>
+
+</td>
+<td class="py-3.5 px-4"><div class="font-semibold text-[#191c1b]">Roberto Tan</div></td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="text-[#191c1b] font-medium">+63 915 765 4321</div>
+<div class="font-['JetBrains_Mono'] text-xs text-[#717970]">r.tan@agricoop.share.bukph</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 text-[#191c1b]">
+<span class="material-symbols-outlined text-base text-[#023616]" data-icon="location_on">location_on</span>
+                    Barangay Impasug-ong
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#eceeec] text-[#717970] font-['JetBrains_Mono'] text-xs font-semibold border border-[#c1c9be]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#717970]"></span>
+                    Inactive
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-[#eceeec] text-[#414941] hover:text-[#023616] transition-colors" title="Edit Member">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-[#ffdad6] text-[#414941] hover:text-[#ba1a1a] transition-colors" onclick="handleDeleteRow(this)" title="Delete Member">
+<span class="material-symbols-outlined text-lg text-red-600" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Maria Flores -->
+<tr class="member-row hover:bg-[#f2f4f2]/70 transition-colors group" data-search="#mb-05 maria flores poultry &amp; grain m.flores@agricoop.share.bukph +63 927 345 6789 barangay mailag" data-status="active">
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="font-['JetBrains_Mono'] text-sm font-semibold text-[#023616]">#MB-05</div>
+
+</td>
+<td class="py-3.5 px-4"><div class="font-semibold text-[#191c1b]">Maria Flores</div></td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="text-[#191c1b] font-medium">+63 927 345 6789</div>
+<div class="font-['JetBrains_Mono'] text-xs text-[#717970]">m.flores@agricoop.share.bukph</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 text-[#191c1b]">
+<span class="material-symbols-outlined text-base text-[#023616]" data-icon="location_on">location_on</span>
+                    Barangay Mailag
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#E8F5E9] text-[#1B5E20] font-['JetBrains_Mono'] text-xs font-semibold border border-[#C8E6C9]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1B5E20]"></span>
+                    Active
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-[#eceeec] text-[#414941] hover:text-[#023616] transition-colors" title="Edit Member">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-[#ffdad6] text-[#414941] hover:text-[#ba1a1a] transition-colors" onclick="handleDeleteRow(this)" title="Delete Member">
+<span class="material-symbols-outlined text-lg text-red-600" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: Danilo Ramos -->
+<tr class="member-row hover:bg-[#f2f4f2]/70 transition-colors group" data-search="#mb-06 danilo ramos highland crops d.ramos@agricoop.share.bukph +63 918 987 6543 barangay cabanglasan" data-status="inactive">
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="font-['JetBrains_Mono'] text-sm font-semibold text-[#023616]">#MB-06</div>
+
+</td>
+<td class="py-3.5 px-4"><div class="font-semibold text-[#191c1b]">Danilo Ramos</div></td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="text-[#191c1b] font-medium">+63 918 987 6543</div>
+<div class="font-['JetBrains_Mono'] text-xs text-[#717970]">d.ramos@agricoop.share.bukph</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 text-[#191c1b]">
+<span class="material-symbols-outlined text-base text-[#023616]" data-icon="location_on">location_on</span>
+                    Barangay Cabanglasan
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#eceeec] text-[#717970] font-['JetBrains_Mono'] text-xs font-semibold border border-[#c1c9be]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#717970]"></span>
+                    Inactive
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-[#eceeec] text-[#414941] hover:text-[#023616] transition-colors" title="Edit Member">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-[#ffdad6] text-[#414941] hover:text-[#ba1a1a] transition-colors" onclick="handleDeleteRow(this)" title="Delete Member">
+<span class="material-symbols-outlined text-lg text-red-600" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Bottom Pagination footer -->
+<div class="bg-[#f2f4f2] border-t border-[#c1c9be] px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
+<div class="text-sm text-[#414941]" id="paginationText">
+            Showing <span class="font-semibold text-[#191c1b]">1</span> to <span class="font-semibold text-[#191c1b]">6</span> of <span class="font-semibold text-[#191c1b]">42</span> members
+          </div>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1.5 rounded border border-[#c1c9be] bg-white text-[#414941] hover:bg-[#eceeec] hover:text-[#191c1b] transition-colors disabled:opacity-40 disabled:cursor-not-allowed font-['JetBrains_Mono'] text-xs" disabled="">
+<span class="material-symbols-outlined text-base align-middle" data-icon="chevron_left">chevron_left</span>
+              Previous
+            </button>
+<button class="px-3 py-1.5 rounded bg-[#1e4d2b] text-white font-['JetBrains_Mono'] text-xs font-semibold shadow-sm">
+              1
+            </button>
+<button class="px-3 py-1.5 rounded border border-[#c1c9be] bg-white text-[#414941] hover:bg-[#eceeec] hover:text-[#191c1b] transition-colors font-['JetBrains_Mono'] text-xs">
+              2
+            </button>
+<button class="px-3 py-1.5 rounded border border-[#c1c9be] bg-white text-[#414941] hover:bg-[#eceeec] hover:text-[#191c1b] transition-colors font-['JetBrains_Mono'] text-xs">
+              3
+            </button>
+<button class="px-2.5 py-1.5 rounded border border-[#c1c9be] bg-white text-[#414941] hover:bg-[#eceeec] hover:text-[#191c1b] transition-colors font-['JetBrains_Mono'] text-xs">
+              Next
+              <span class="material-symbols-outlined text-base align-middle" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Interactive UI script -->
+<script>
+    let currentFilter = 'all';
+
+    function filterTable() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const statusValue = document.getElementById('statusFilter').value;
+      const rows = document.querySelectorAll('.member-row');
+      let visibleCount = 0;
+
+      rows.forEach(row => {
+        const rowStatus = row.getAttribute('data-status');
+        const rowText = (row.getAttribute('data-search') || row.innerText).toLowerCase();
+
+        const matchesQuery = !query || rowText.includes(query);
+        const matchesStatus = (statusValue === 'all' || rowStatus === statusValue) && 
+                              (currentFilter === 'all' || rowStatus === currentFilter);
+
+        if (matchesQuery && matchesStatus) {
+          row.style.display = '';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      const paginationText = document.getElementById('paginationText');
+      if (paginationText) {
+        paginationText.innerHTML = `Showing <span class="font-semibold text-[#191c1b]">1</span> to <span class="font-semibold text-[#191c1b]">${visibleCount}</span> of <span class="font-semibold text-[#191c1b]">42</span> members`;
+      }
+    }
+
+    function selectFilterPill(filter) {
+      currentFilter = filter;
+      const pills = {
+        'all': document.getElementById('pillAll'),
+        'active': document.getElementById('pillActive'),
+        'inactive': document.getElementById('pillInactive')
+      };
+
+      Object.keys(pills).forEach(k => {
+        const btn = pills[k];
+        if (k === filter) {
+          btn.className = 'pill-btn px-3 py-1.5 rounded-md bg-[#1e4d2b] text-white font-[\'JetBrains_Mono\'] text-xs font-semibold shrink-0 transition-colors';
+        } else {
+          btn.className = 'pill-btn px-3 py-1.5 rounded-md bg-[#f2f4f2] hover:bg-[#eceeec] text-[#191c1b] font-[\'JetBrains_Mono\'] text-xs border border-[#c1c9be] shrink-0 transition-colors';
+        }
+      });
+
+      document.getElementById('statusFilter').value = filter === 'all' ? 'all' : filter;
+      filterTable();
+    }
+
+    document.getElementById('searchInput').addEventListener('input', filterTable);
+    document.getElementById('statusFilter').addEventListener('change', (e) => {
+      selectFilterPill(e.target.value);
+    });
+
+    function handleDeleteRow(btn) {
+      const row = btn.closest('tr');
+      if (confirm('Are you sure you want to remove this member record?')) {
+        row.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+        row.style.opacity = '0';
+        row.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+          row.remove();
+          filterTable();
+        }, 200);
+      }
+    }
+  </script>
+
+
+</body></html>
